@@ -1,6 +1,8 @@
 # Startup Star
 
-*A pet app by Astra.* The star in the Windows system tray that brings out Astra's desktop pets.
+*A tool by Astra.* The star in the Windows system tray that brings out Astra's desktop pets.
+
+Startup Star is a **tool**, not a pet: it does a job but has no face. It is the Friendly Farmer's tool for the desktop part of Astra's PetOS.
 
 ## Open it
 - Double-click **Startup Star** in this folder or in the Start menu.

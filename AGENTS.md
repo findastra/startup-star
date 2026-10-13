@@ -1,6 +1,6 @@
 # Rules for assistants working on Startup Star (startup-star)
 
-*A pet app by Astra.* Public credit is always **Astra**.
+*A tool by Astra.* Public credit is always **Astra**. A tool does a job but has no face, so Startup Star gets no pet art, moods or intelligence levels; it is the Friendly Farmer's tool.
 
 Started by Claude Opus 5.5 (`claude-opus-5-5`), 2026-10-12, as Astra's head chat. Record your model name and version here when you change something substantial.
 
