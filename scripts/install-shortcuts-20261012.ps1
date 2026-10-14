@@ -3,7 +3,7 @@
 # program's own sign-in startup (its --install-startup mode), then opens the star.
 # Run again any time; it overwrites only the two shortcuts it made.
 param(
-  [string]$PetApps = "C:\Users\audra\Documents\Projects\astras-pet-os",
+  [string]$PetApps = (Join-Path $env:USERPROFILE "Documents\Projects\astras-pet-os"),
   [switch]$NoStartup,
   [switch]$NoLaunch
 )
