@@ -2,8 +2,9 @@
 # Creates "Startup Star.lnk" in this folder and in the Start menu, turns on the desktop
 # program's own sign-in startup (its --install-startup mode), then opens the star.
 # Run again any time; it overwrites only the two shortcuts it made.
+# astras-pet-os sits next to this repo (both live in the same folder: "Astra's Pet Apps", becoming "Astra's PetOS"), so the default follows the folders when they move. After a move, run this script once.
 param(
-  [string]$PetApps = (Join-Path $env:USERPROFILE "Documents\Projects\astras-pet-os"),
+  [string]$PetApps = (Join-Path (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)) "astras-pet-os"),
   [switch]$NoStartup,
   [switch]$NoLaunch
 )
@@ -33,5 +34,17 @@ foreach ($dir in @($here, $startMenu)) {
   Write-Output "Shortcut: $(Join-Path $dir 'Startup Star.lnk')"
 }
 
-if (-not $NoStartup) { & $exe $PetApps --install-startup | Out-Null; Write-Output "Starts when you sign in: on" }
+if (-not $NoStartup) {
+  & $exe $PetApps --install-startup | Out-Null; Write-Output "Starts when you sign in: on"
+  # Live sync starts hidden at sign-in too. Rewritten here so a folder move is fixed by running this script once.
+  $sync = Join-Path $PSScriptRoot "live-sync-20261017.ps1"
+  if (Test-Path -LiteralPath $sync) {
+    $vbs = Join-Path ([Environment]::GetFolderPath('Startup')) 'Astras PetOS Live Sync.vbs'
+    $q = '""'
+    Set-Content -LiteralPath $vbs -Encoding ASCII -Value @(
+      "' Starts Startup Star's live sync. Written by install-shortcuts-20261012.ps1.",
+      "CreateObject(""WScript.Shell"").Run ""powershell -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File $q$sync$q"", 0, False")
+    Write-Output "Live sync starts when you sign in: $vbs"
+  }
+}
 if (-not $NoLaunch) { Start-Process -FilePath $exe -ArgumentList ('"' + $PetApps + '"') -WorkingDirectory $PetApps; Write-Output "Star opened" }
