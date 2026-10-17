@@ -20,3 +20,4 @@ Started by Claude Opus 5.5 (`claude-opus-5-5`), 2026-10-12, as Astra's head chat
 - The star shows pets; it never becomes the pets' execution engine.
 - Ask Astra before creating the GitHub repo, publishing, or changing startup settings on her PC.
 - Say plainly what is not done.
+- The shortcut wears the folder's star, never the program's own icon (Astra, 2026-10-17; Flash Audit A53). Claude Opus 5.5, 2026-10-17.
