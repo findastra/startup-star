@@ -11,6 +11,15 @@ Startup Star is a **tool**, not a pet: it does a job but has no face. It is the 
 - Can't see the star? Click the **^** by the clock. To keep it showing, go to Settings →
   Personalization → Taskbar → Other system tray icons and turn on desktop-pets.
 
+## Live sync
+`scripts/live-sync-20261017.ps1` keeps the folders in Astra's Pet Apps current with GitHub, so changes show up on
+this PC by themselves: Astra's PetOS every 30 seconds, every other repo every 5 minutes. It only fast-forwards a
+folder that is on a branch with an upstream, has no uncommitted or unpushed work, and is behind; anything else is
+left alone and written to the log (`%LOCALAPPDATA%\astras-pet-apps\live-sync-20261017.log`). When Astra's PetOS
+brings new pets, art or a new desktop program and the star is open, it restarts the star. It starts hidden at sign-in
+from `Astras PetOS Live Sync.vbs` in the Windows Startup folder; delete that file to turn it off.
+It follows whatever branch each folder is on, so a folder left on someone's work branch follows that branch, not `main`.
+
 ## Clicks
 - Tray star, left click: show or hide the star on the desktop.
 - Desktop star, double-click: line the pets up on the floor, or let them roam again.
